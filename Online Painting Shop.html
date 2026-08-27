@@ -1,0 +1,1843 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AMOSH | Premium House Painting</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --orange:#f97316;
+    --dark:#171717;
+    --light:#fff7ed;
+    --gray:#666;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fafafa;
+    color:#222;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:72px;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+nav ul{
+    display:flex;
+    gap:24px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:var(--orange);
+}
+
+.nav-btn{
+    border:0;
+    background:var(--orange);
+    color:white;
+    padding:12px 22px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    align-items:center;
+    transition:background-image 1s ease;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.8),
+        rgba(0,0,0,.2)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    margin-left:8%;
+    max-width:700px;
+}
+
+.hero-content small{
+    color:#ffb16b;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.hero h1{
+    font-size:68px;
+    line-height:1.05;
+    margin:20px 0;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    border:0;
+    padding:15px 28px;
+    border-radius:30px;
+    background:var(--orange);
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.btn:hover{
+    background:#ea580c;
+    transform:translateY(-2px);
+}
+
+.outline{
+    background:transparent;
+    border:2px solid white;
+    margin-left:8px;
+}
+
+.dots{
+    position:absolute;
+    bottom:35px;
+    left:8%;
+    z-index:5;
+}
+
+.dot{
+    display:inline-block;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:white;
+    margin-right:8px;
+    opacity:.5;
+    cursor:pointer;
+}
+
+.dot.active{
+    opacity:1;
+    transform:scale(1.3);
+}
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:90px 7%;
+}
+
+.title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.subtitle{
+    text-align:center;
+    color:var(--gray);
+    margin-bottom:45px;
+}
+
+/* ================= SERVICES ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:32px 22px;
+    text-align:center;
+    border-radius:22px;
+    box-shadow:0 5px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#777;
+    line-height:1.6;
+}
+
+/* ================= DESIGNS ================= */
+
+.design-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.design{
+    height:290px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+}
+
+.design img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.design:hover img{
+    transform:scale(1.1);
+}
+
+.design-info{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    color:white;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.85)
+    );
+}
+
+.design-info button{
+    margin-top:10px;
+    border:0;
+    padding:9px 16px;
+    border-radius:20px;
+    background:var(--orange);
+    color:white;
+}
+
+/* ================= COLOR ================= */
+
+.color-area{
+    background:#fff7ed;
+}
+
+.colors{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.color{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.color:hover{
+    transform:scale(1.15);
+}
+
+.color-name{
+    text-align:center;
+    margin-top:30px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ================= PREVIEW ================= */
+
+.preview-box{
+    max-width:850px;
+    height:350px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+    background:url(
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d"
+    ) center/cover;
+}
+
+.preview-wall{
+    position:absolute;
+    right:0;
+    top:0;
+    width:48%;
+    height:100%;
+    background:#f5e6cc;
+    opacity:.7;
+    mix-blend-mode:multiply;
+    transition:.5s;
+}
+
+.preview-text{
+    position:absolute;
+    left:30px;
+    bottom:25px;
+    color:white;
+    text-shadow:0 2px 5px black;
+}
+
+/* ================= CALCULATOR ================= */
+
+.calculator{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin:12px 0 7px;
+}
+
+.input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+.price{
+    text-align:center;
+    font-size:34px;
+    font-weight:bold;
+    color:var(--orange);
+    margin:25px 0;
+}
+
+/* ================= BOOKING ================= */
+
+.booking{
+    background:#fff7ed;
+}
+
+.booking-container{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+textarea{
+    height:100px;
+    resize:none;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+    margin-top:25px;
+    padding:22px;
+    background:#f8f8f8;
+    border-radius:15px;
+    display:none;
+}
+
+.summary h3{
+    margin-bottom:15px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #ddd;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment{
+    background:#f5f5f5;
+}
+
+.payment-box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+
+.payment-amount{
+    text-align:center;
+    font-size:38px;
+    color:var(--orange);
+    font-weight:bold;
+    margin:20px;
+}
+
+.methods{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+
+.method{
+    padding:18px 8px;
+    border:1px solid #ddd;
+    background:white;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.method.selected{
+    border:2px solid var(--orange);
+    background:#fff7ed;
+}
+
+.pay-fields{
+    display:none;
+}
+
+.pay-fields.show{
+    display:block;
+}
+
+/* ================= STATUS ================= */
+
+.status-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.status{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+.status-step{
+    text-align:center;
+    flex:1;
+}
+
+.circle{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#ddd;
+    margin:auto auto 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.circle.done{
+    background:#22c55e;
+    color:white;
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review{
+    background:white;
+    padding:28px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.stars{
+    color:#f59e0b;
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#171717;
+    color:white;
+    padding:50px 7%;
+    text-align:center;
+}
+
+footer h2{
+    color:var(--orange);
+    margin-bottom:12px;
+}
+
+/* ================= POPUP ================= */
+
+.popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+}
+
+.popup-box{
+    width:90%;
+    max-width:500px;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+}
+
+.success{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .design-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:70px 5%;
+    }
+
+    .cards,
+    .design-grid,
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .hero-content{
+        margin:0 25px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .calculator,
+    .booking-container,
+    .payment-box{
+        padding:25px;
+    }
+
+    .methods{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+AMOSH<span>.</span>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#designs">Designs</a></li>
+<li><a href="#colors">Colors</a></li>
+<li><a href="#booking">Booking</a></li>
+<li><a href="#payment">Payment</a></li>
+</ul>
+
+<button class="nav-btn" onclick="goBooking()">
+Book Now
+</button>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<small>PREMIUM HOUSE PAINTING</small>
+
+<h1 id="heroTitle">
+Transform Your Home
+</h1>
+
+<p id="heroText">
+Beautiful colors, professional painters and
+a finish you'll love.
+</p>
+
+<button class="btn" onclick="goBooking()">
+Book Your Painter
+</button>
+
+<button class="btn outline"
+onclick="location.href='#designs'">
+Explore Designs
+</button>
+
+</div>
+
+<div class="dots">
+<span class="dot active" onclick="changeSlide(0)"></span>
+<span class="dot" onclick="changeSlide(1)"></span>
+<span class="dot" onclick="changeSlide(2)"></span>
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+<h2 class="title">What We Paint</h2>
+
+<p class="subtitle">
+Complete painting solutions for your dream home
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🏠</div>
+<h3>Interior</h3>
+<p>
+Beautiful colors for bedrooms,
+living rooms and kitchens.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏡</div>
+<h3>Exterior</h3>
+<p>
+Strong and beautiful exterior
+wall protection.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">✨</div>
+<h3>Texture</h3>
+<p>
+Premium textures for a
+luxury appearance.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💧</div>
+<h3>Waterproof</h3>
+<p>
+Protect your walls from
+water and moisture.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= DESIGNS ================= -->
+
+<section id="designs">
+
+<h2 class="title">Choose Your Style</h2>
+
+<p class="subtitle">
+Select a design you love
+</p>
+
+<div class="design-grid">
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
+
+<div class="design-info">
+<h3>Modern Living</h3>
+<p>Clean & elegant</p>
+
+<button onclick="selectDesign('Modern Living')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3">
+
+<div class="design-info">
+<h3>Luxury Bedroom</h3>
+<p>Premium finish</p>
+
+<button onclick="selectDesign('Luxury Bedroom')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0">
+
+<div class="design-info">
+<h3>Classic Interior</h3>
+<p>Warm & comfortable</p>
+
+<button onclick="selectDesign('Classic Interior')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+
+<div class="design-info">
+<h3>Premium Exterior</h3>
+<p>Modern elevation</p>
+
+<button onclick="selectDesign('Premium Exterior')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea">
+
+<div class="design-info">
+<h3>Minimal Style</h3>
+<p>Simple & beautiful</p>
+
+<button onclick="selectDesign('Minimal Style')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+
+<div class="design">
+
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+
+<div class="design-info">
+<h3>Luxury Home</h3>
+<p>Premium collection</p>
+
+<button onclick="selectDesign('Luxury Home')">
+Choose Design
+</button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COLORS ================= -->
+
+<section class="color-area" id="colors">
+
+<h2 class="title">Pick Your Color</h2>
+
+<p class="subtitle">
+Click a color and preview your selection
+</p>
+
+<div class="colors">
+
+<div class="color"
+style="background:#ffffff"
+onclick="selectColor('Pure White','#ffffff')"></div>
+
+<div class="color"
+style="background:#f5e6cc"
+onclick="selectColor('Cream','#f5e6cc')"></div>
+
+<div class="color"
+style="background:#d9ead3"
+onclick="selectColor('Mint Green','#d9ead3')"></div>
+
+<div class="color"
+style="background:#a4c2f4"
+onclick="selectColor('Sky Blue','#a4c2f4')"></div>
+
+<div class="color"
+style="background:#d5a6bd"
+onclick="selectColor('Rose Pink','#d5a6bd')"></div>
+
+<div class="color"
+style="background:#b4a7d6"
+onclick="selectColor('Lavender','#b4a7d6')"></div>
+
+<div class="color"
+style="background:#f9cb9c"
+onclick="selectColor('Peach','#f9cb9c')"></div>
+
+<div class="color"
+style="background:#6d9eeb"
+onclick="selectColor('Ocean Blue','#6d9eeb')"></div>
+
+<div class="color"
+style="background:#76a5af"
+onclick="selectColor('Teal','#76a5af')"></div>
+
+<div class="color"
+style="background:#783f04"
+onclick="selectColor('Brown','#783f04')"></div>
+
+</div>
+
+<div class="color-name">
+Selected:
+<span id="selectedColor">
+None
+</span>
+</div>
+
+<br><br>
+
+<div class="preview-box">
+
+<div class="preview-wall" id="previewWall"></div>
+
+<div class="preview-text">
+<h2>Your Color Preview</h2>
+<p>See how your selected shade looks</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRICE ================= -->
+
+<section>
+
+<h2 class="title">
+Instant Price Estimate
+</h2>
+
+<p class="subtitle">
+Know your approximate painting budget instantly
+</p>
+
+<div class="calculator">
+
+<label>House Area (sq.ft)</label>
+
+<input
+class="input"
+type="number"
+id="area"
+placeholder="Example: 1200"
+oninput="calculatePrice()"
+>
+
+<label>Painting Package</label>
+
+<select
+class="input"
+id="package"
+onchange="calculatePrice()">
+
+<option value="8">
+Essential - ₹8/sq.ft
+</option>
+
+<option value="12">
+Premium - ₹12/sq.ft
+</option>
+
+<option value="18">
+Luxury - ₹18/sq.ft
+</option>
+
+<option value="25">
+Royal Texture - ₹25/sq.ft
+</option>
+
+</select>
+
+<div class="price">
+₹<span id="totalPrice">0</span>
+</div>
+
+<p style="text-align:center;color:#777;">
+20% advance required for booking
+</p>
+
+<br>
+
+<button class="btn"
+onclick="usePrice()">
+Continue Booking
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="booking" id="booking">
+
+<h2 class="title">
+Book Your Painting
+</h2>
+
+<p class="subtitle">
+Just a few details and we'll take care of the rest
+</p>
+
+<div class="booking-container">
+
+<div class="form-grid">
+
+<div>
+<label>Full Name</label>
+<input class="input"
+id="name"
+placeholder="Your name">
+</div>
+
+<div>
+<label>Phone Number</label>
+<input class="input"
+id="phone"
+placeholder="10 digit mobile number">
+</div>
+
+<div>
+<label>Email</label>
+<input class="input"
+id="email"
+placeholder="your@email.com">
+</div>
+
+<div>
+<label>Painting Date</label>
+<input class="input"
+type="date"
+id="date">
+</div>
+
+<div class="full">
+<label>House Address</label>
+<textarea
+class="input"
+id="address"
+placeholder="Enter complete address">
+</textarea>
+</div>
+
+<div>
+<label>House Area</label>
+<input
+class="input"
+type="number"
+id="bookingArea"
+placeholder="Sq.ft">
+</div>
+
+<div>
+<label>Service</label>
+
+<select class="input" id="service">
+
+<option>Interior Painting</option>
+<option>Exterior Painting</option>
+<option>Texture Painting</option>
+<option>Waterproof Painting</option>
+<option>Premium Painting</option>
+
+</select>
+
+</div>
+
+<div>
+<label>Selected Design</label>
+
+<input
+class="input"
+id="bookingDesign"
+value="Not selected"
+readonly>
+
+</div>
+
+<div>
+<label>Selected Color</label>
+
+<input
+class="input"
+id="bookingColor"
+value="Not selected"
+readonly>
+
+</div>
+
+</div>
+
+
+<div class="summary" id="summary">
+
+<h3>Booking Summary</h3>
+
+<div class="summary-row">
+<span>Customer</span>
+<b id="sumName">-</b>
+</div>
+
+<div class="summary-row">
+<span>Service</span>
+<b id="sumService">-</b>
+</div>
+
+<div class="summary-row">
+<span>Design</span>
+<b id="sumDesign">-</b>
+</div>
+
+<div class="summary-row">
+<span>Color</span>
+<b id="sumColor">-</b>
+</div>
+
+<div class="summary-row">
+<span>Estimated Cost</span>
+<b>₹<span id="sumPrice">0</span></b>
+</div>
+
+<div class="summary-row">
+<span>Advance</span>
+<b>₹<span id="sumAdvance">0</span></b>
+</div>
+
+</div>
+
+<br>
+
+<button class="btn"
+onclick="confirmBooking()">
+Confirm & Continue to Payment
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= PAYMENT ================= -->
+
+<section class="payment" id="payment">
+
+<h2 class="title">
+Secure Booking Payment
+</h2>
+
+<p class="subtitle">
+Pay only 20% advance to confirm your painter
+</p>
+
+<div class="payment-box">
+
+<h3 style="text-align:center;">
+Booking Advance
+</h3>
+
+<div class="payment-amount">
+₹<span id="advanceAmount">1000</span>
+</div>
+
+<div class="methods">
+
+<button class="method"
+onclick="selectMethod(this,'UPI')">
+📱 UPI
+</button>
+
+<button class="method"
+onclick="selectMethod(this,'Card')">
+💳 Card
+</button>
+
+<button class="method"
+onclick="selectMethod(this,'Net Banking')">
+🏦 Net Banking
+</button>
+
+</div>
+
+
+<div class="pay-fields" id="upiFields">
+
+<label>UPI ID</label>
+
+<input
+class="input"
+id="upi"
+placeholder="example@upi">
+
+</div>
+
+
+<div class="pay-fields" id="cardFields">
+
+<label>Card Number</label>
+
+<input
+class="input"
+placeholder="XXXX XXXX XXXX XXXX">
+
+<label>Expiry</label>
+
+<input
+class="input"
+placeholder="MM/YY">
+
+<label>CVV</label>
+
+<input
+class="input"
+type="password"
+placeholder="CVV">
+
+</div>
+
+
+<div class="pay-fields" id="bankFields">
+
+<label>Select Bank</label>
+
+<select class="input">
+
+<option>Select Bank</option>
+<option>SBI</option>
+<option>HDFC Bank</option>
+<option>ICICI Bank</option>
+<option>Axis Bank</option>
+</select>
+
+</div>
+
+<br>
+
+<button class="btn"
+style="width:100%;"
+onclick="processPayment()">
+
+🔒 Pay Securely
+
+</button>
+
+<p
+id="paymentMessage"
+style="text-align:center;margin-top:18px;">
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= BOOKING STATUS ================= -->
+
+<section>
+
+<h2 class="title">
+Track Your Booking
+</h2>
+
+<p class="subtitle">
+Your painting journey
+</p>
+
+<div class="status-box">
+
+<h3>
+Booking ID:
+<span id="statusID">Not Available</span>
+</h3>
+
+<div class="status">
+
+<div class="status-step">
+<div class="circle done">✓</div>
+Booking
+</div>
+
+<div class="status-step">
+<div class="circle" id="verified">2</div>
+Verified
+</div>
+
+<div class="status-step">
+<div class="circle" id="assigned">3</div>
+Painter
+</div>
+
+<div class="status-step">
+<div class="circle" id="completed">4</div>
+Completed
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section>
+
+<h2 class="title">
+Our Happy Customers
+</h2>
+
+<p class="subtitle">
+Real people. Beautiful homes.
+</p>
+
+<div class="reviews">
+
+<div class="review">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"AMOSH made my house look completely
+new. The color suggestion was perfect."
+</p>
+
+<br>
+
+<b>— Arun</b>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"Very easy booking process and
+professional painters."
+</p>
+
+<br>
+
+<b>— Priya</b>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">★★★★★</div>
+
+<p>
+"The finish was excellent and the
+team completed the work on time."
+</p>
+
+<br>
+
+<b>— Karthik</b>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h2>AMOSH.</h2>
+
+<p>
+Paint Your Dream. Live Your Color.
+</p>
+
+<br>
+
+<p>
+📞 +91 8610184804
+&nbsp; | &nbsp;
+✉ support@amosh.com
+</p>
+
+<br>
+
+<p>
+© 2026 AMOSH Painting. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<!-- ================= SUCCESS POPUP ================= -->
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<div class="success">🎉</div>
+
+<h2>Booking Confirmed!</h2>
+
+<br>
+
+<p id="successMessage"></p>
+
+<br>
+
+<button class="btn"
+onclick="closePopup()">
+View Booking
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= GLOBAL DATA ================= */
+
+let selectedColor = "Not selected";
+let selectedDesign = "Not selected";
+let selectedMethod = "";
+let bookingID = "";
+
+
+/* ================= SLIDESHOW ================= */
+
+const slides = [
+
+{
+image:
+"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
+title:
+"Transform Your Home",
+text:
+"Beautiful colors, professional painters and a finish you'll love."
+},
+
+{
+image:
+"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
+title:
+"Colors That Inspire",
+text:
+"Choose modern shades designed for your lifestyle."
+},
+
+{
+image:
+"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+title:
+"Make Your Home Beautiful",
+text:
+"Premium painting services at transparent prices."
+}
+
+];
+
+let slide=0;
+
+function changeSlide(index){
+
+slide=index;
+
+document.querySelector(".hero").style.backgroundImage=
+`url('${slides[index].image}')`;
+
+document.getElementById("heroTitle").innerText=
+slides[index].title;
+
+document.getElementById("heroText").innerText=
+slides[index].text;
+
+document.querySelectorAll(".dot")
+.forEach((dot,i)=>{
+dot.classList.toggle("active",i===index);
+});
+
+}
+
+setInterval(()=>{
+
+slide=(slide+1)%slides.length;
+
+changeSlide(slide);
+
+},5000);
+
+
+/* ================= BOOKING SCROLL ================= */
+
+function goBooking(){
+
+document.getElementById("booking")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ================= COLOR ================= */
+
+function selectColor(name,color){
+
+selectedColor=name;
+
+document.getElementById("selectedColor")
+.innerText=name;
+
+document.getElementById("bookingColor")
+.value=name;
+
+document.getElementById("previewWall")
+.style.background=color;
+
+}
+
+
+/* ================= DESIGN ================= */
+
+function selectDesign(name){
+
+selectedDesign=name;
+
+document.getElementById("bookingDesign")
+.value=name;
+
+goBooking();
+
+}
+
+
+/* ================= PRICE ================= */
+
+function calculatePrice(){
+
+let area=
+Number(document.getElementById("area").value);
+
+let rate=
+Number(document.getElementById("package").value);
+
+let total=area*rate;
+
+document.getElementById("totalPrice")
+.innerText=
+total.toLocaleString("en-IN");
+
+document.getElementById("advanceAmount")
+.innerText=
+Math.round(total*.20)
+.toLocaleString("en-IN");
+
+}
+
+function usePrice(){
+
+let area=
+document.getElementById("area").value;
+
+if(!area){
+
+alert("Please enter house area first.");
+
+return;
+
+}
+
+document.getElementById("bookingArea")
+.value=area;
+
+goBooking();
+
+}
+
+
+/* ================= BOOKING ================= */
+
+function confirmBooking(){
+
+let name=
+document.getElementById("name").value.trim();
+
+let phone=
+document.getElementById("phone").value.trim();
+
+let date=
+document.getElementById("date").value;
+
+let address=
+document.getElementById("address").value.trim();
+
+let area=
+document.getElementById("bookingArea").value;
+
+if(
+!name ||
+!phone ||
+!date ||
+!address ||
+!area
+){
+
+alert(
+"Please fill all required booking details."
+);
+
+return;
+
+}
+
+if(phone.length!==10){
+
+alert(
+"Please enter a valid 10 digit phone number."
+);
+
+return;
+
+}
+
+let total=
+Number(document.getElementById("totalPrice")
+.innerText.replace(/,/g,""));
+
+if(!total || total===0){
+
+let rate=
+Number(document.getElementById("package").value);
+
+total=area*rate;
+
+}
+
+let advance=
+Math.round(total*.20);
+
+document.getElementById("sumName").innerText=name;
+
+document.getElementById("sumService").innerText=
+document.getElementById("service").value;
+
+document.getElementById("sumDesign").innerText=
+selectedDesign;
+
+document.getElementById("sumColor").innerText=
+selectedColor;
+
+document.getElementById("sumPrice").innerText=
+total.toLocaleString("en-IN");
+
+document.getElementById("sumAdvance").innerText=
+advance.toLocaleString("en-IN");
+
+document.getElementById("advanceAmount").innerText=
+advance.toLocaleString("en-IN");
+
+document.getElementById("summary")
+.style.display="block";
+
+document.getElementById("payment")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ================= PAYMENT METHOD ================= */
+
+function selectMethod(button,method){
+
+selectedMethod=method;
+
+document.querySelectorAll(".method")
+.forEach(btn=>{
+btn.classList.remove("selected");
+});
+
+button.classList.add("selected");
+
+document.querySelectorAll(".pay-fields")
+.forEach(field=>{
+field.classList.remove("show");
+});
+
+if(method==="UPI"){
+
+document.getElementById("upiFields")
+.classList.add("show");
+
+}
+
+if(method==="Card"){
+
+document.getElementById("cardFields")
+.classList.add("show");
+
+}
+
+if(method==="Net Banking"){
+
+document.getElementById("bankFields")
+.classList.add("show");
+
+}
+
+}
+
+
+/* ================= PAYMENT ================= */
+
+function processPayment(){
+
+if(!selectedMethod){
+
+alert("Please select a payment method.");
+
+return;
+
+}
+
+if(selectedMethod==="UPI"){
+
+let upi=
+document.getElementById("upi").value.trim();
+
+if(!upi){
+
+alert("Please enter your UPI ID.");
+
+return;
+
+}
+
+}
+
+
+/*
+DEMO PAYMENT
+
+For real payment, this function should
+call a secure backend/payment gateway.
+*/
+
+document.getElementById("paymentMessage")
+.innerHTML=
+"⏳ Processing secure payment...";
+
+setTimeout(()=>{
+
+bookingID=
+"AMOSH-"+Math.floor(
+100000+Math.random()*900000
+);
+
+document.getElementById("statusID")
+.innerText=bookingID;
+
+document.getElementById("verified")
+classList.add("done");
+
+document.getElementById("verified")
+innerText="✓";
+
+document.getElementById("successMessage")
+.innerHTML=
+
+"Your booking has been successfully received.<br><br>"+
+
+"<b>Booking ID:</b> "+bookingID+
+"<br><br>"+
+
+"<b>Payment:</b> "+selectedMethod+
+"<br><br>"+
+
+"Our team will contact you shortly.";
+
+document.getElementById("popup")
+.style.display="flex";
+
+},1800);
+
+}
+
+
+/* ================= POPUP ================= */
+
+function closePopup(){
+
+document.getElementById("popup")
+.style.display="none";
+
+document.getElementById("statusID")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
+```
